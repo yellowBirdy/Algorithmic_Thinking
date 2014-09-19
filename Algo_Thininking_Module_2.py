@@ -3,7 +3,7 @@
 
 ## 1. Project
 
-# In[1]:
+# In[42]:
 
 """
 Project 2 of Algorythmic Thinking implementation: 
@@ -17,7 +17,7 @@ from collections import deque
 import random
 
 
-# In[37]:
+# In[43]:
 
 #small fully connected graph
 EX_UGRAPH0 = {0:set([1,2,3]),
@@ -49,7 +49,7 @@ EX_UGRAPH2 = {0:set([1,3,5]),
 
 ### Task 1: BFS-Visited implementation
 
-# In[3]:
+# In[44]:
 
 
 
@@ -77,7 +77,7 @@ def bfs_visited(ugraph, start_node):
 
 ### Task2: Computing a set of connected components CC using BFS-Visited
 
-# In[4]:
+# In[45]:
 
 def cc_visited(ugraph) :
     """ 
@@ -117,7 +117,7 @@ def largest_cc_size(ugraph):
 
 ### Part3: Resilence test
 
-# In[19]:
+# In[51]:
 
 def compute_resilience(ugraph, attack_order):
     """
@@ -126,7 +126,8 @@ def compute_resilience(ugraph, attack_order):
     returns a list of sizes of largest connected component, first elelment is for full network followed by size after noeds have been attacked
     """
     #copy graph  to local variable 
-    local_ugraph = ugraph.copy()
+    local_ugraph = {node:graph[node] for node in graph}
+    
     largest_cc = []
     largest_cc.append(largest_cc_size(local_ugraph))
     for attacked_node in attack_order:
